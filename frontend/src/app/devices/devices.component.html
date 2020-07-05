@@ -1,0 +1,39 @@
+<div
+  class="text-center"
+  [hidden]="!serverError || serverError === ''"
+>
+  <span class="error text-danger">{{ serverError }}</span>
+</div>
+
+<table class="table" *ngIf="devices && devices.length > 0">
+  <thead>
+    <tr>
+      <th>UID</th>
+      <th>Vendor</th>
+      <th>Status</th>
+      <th>Created</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let device of devices">
+      <td class="device-uid">{{ device.uid }}</td>
+      <td class="device-vendor">{{ device.vendor }}</td>
+      <td class="device-status">
+        <span class="text-success" *ngIf="device.status">online</span>
+
+        <span class="text-danger" *ngIf="!device.status">offline</span>
+      </td>
+      <td class="device-date">{{ device.dateCreated | date: "medium" }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteDevice(device._id)">
+          Delete device
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <button class="btn btn-success" (click)="addDevice()">Add device</button>
+</div>

@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <h2 class="modal-title">Add device</h2>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form
+    [formGroup]="deviceForm"
+    (ngSubmit)="submitDevice()"
+    name="addDeviceForm"
+    novalidate
+  >
+    <div
+      class="add-device-component-fields"
+      [hidden]="!serverError || serverError === ''"
+    >
+      <span class="error text-danger">{{ serverError }}</span>
+    </div>
+
+    <div class="add-device-component-fields">
+      UID: <input type="text" formControlName="uid" />
+      <span class="error text-danger">*</span>
+      <div
+        *ngIf="uid.invalid && (uid.dirty || uid.touched)"
+        class="error text-danger"
+      >
+        <div *ngIf="uid.errors.required">Required.</div>
+        <div *ngIf="uid.errors.pattern">Only numbers.</div>
+      </div>
+    </div>
+
+    <div class="add-device-component-fields">
+      Vendor: <input type="text" formControlName="vendor" />
+    </div>
+
+    <div class="add-device-component-fields">
+      Status: <input type="checkbox" formControlName="status" />
+    </div>
+
+    <div class="text-center add-device-component-btn">
+      <button
+        type="submit"
+        [disabled]="!deviceForm.valid"
+        class="btn btn-default btn-success"
+      >
+        Submit
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="activeModal.dismiss()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

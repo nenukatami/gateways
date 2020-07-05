@@ -1,0 +1,16 @@
+<div class="modal-header" *ngIf="gateway">
+  <h2 class="modal-title">Gateway Details</h2>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Close click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div><span>Name: </span>{{ gateway.name | uppercase }}</div>
+  <div><span>Serial Number: </span>{{ gateway.serialNumber }}</div>
+  <div><span>IPv4: </span>{{ gateway.ipv }}</div>
+</div>

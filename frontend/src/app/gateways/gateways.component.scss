@@ -1,0 +1,46 @@
+.gateway-component-parent-box {
+  width: 70%;
+  margin-left: 15%;
+}
+
+.gateway-component-list {
+  list-style: none;
+  padding: 0;
+}
+
+.gateway-component-list li {
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  border-bottom: 2px solid #000;
+}
+
+.gateway-component-list button {
+  margin-right: 20px;
+}
+
+.gateway-component-list span.glyphicon-chevron-down,
+.gateway-component-list span.glyphicon-chevron-up {
+  color: #ccc;
+  position: absolute;
+}
+
+.gateway-component-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.gateway-component-detail-hover:hover,
+.activeGateway {
+  color: cornflowerblue;
+}
+
+.gateway-component-buttons {
+  position: relative;
+}
