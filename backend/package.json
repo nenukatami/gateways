@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "jest": "^26.1.0",
-    "supertest": "^0.15.0"
+    "supertest": "^6.3.3"
   },
   "scripts": {
     "start": "node server.js",
